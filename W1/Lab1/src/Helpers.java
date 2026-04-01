@@ -1,9 +1,10 @@
 public class Helpers {
-    public static String [] splitName(String Name) {
-        return Name.split(" ");
+    public static String[] splitName(String name) {
+        // \\s+ splits on one or more whitespace characters, and trim() removes leading and trailing whitespace
+        return name.trim().split("\\s+");
     }
 
-    public static String [] splitDate(String date) {
+    public static String[] splitDate(String date) {
         return date.split("/");
     }
 
@@ -21,13 +22,28 @@ public class Helpers {
             case "10" -> month = "Oct";
             case "11" -> month = "Nov";
             case "12" -> month = "Dec";
+
             default -> month = "Invalid month";
         }
 
-        if (day.startsWith("0")) {
-            day = day.substring(1);
-        }
+        day =
+                (day.startsWith("0"))
+                        ? day.substring(1)
+                        : day;
 
-        return month + " " + day + ", " + year;
+        return (month.equals("Invalid month"))
+                ? "Invalid month"
+                : month + " " + day + ", " + year;
+    }
+
+    public static String formatOutput(String lName, String fName, String date) {
+        String comma =
+                (!lName.isEmpty())
+                        ? ", "
+                        : "";
+
+        return (date.equals("Invalid month"))
+                ? "Invalid Date"
+                : lName + comma + fName + " had a Date of Birth of " + date;
     }
 }
