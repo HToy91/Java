@@ -18,6 +18,13 @@ public class Main {
         System.out.println("Please enter your Date of Birth");
         String dateOfBirth = scanner.nextLine();
 
-        System.out.println(lName + fName + " has a Date of Birth is " + dateOfBirth);
+        String [] splitDate = Helpers.splitDate(dateOfBirth);
+        String month = splitDate[0];
+        String day = splitDate[1];
+        String year = splitDate[2];
+
+
+
+        System.out.println(lName + fName + " had a Date of Birth of " + Helpers.formatDate(month, day, year));
     }
 }
