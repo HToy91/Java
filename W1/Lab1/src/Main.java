@@ -26,7 +26,7 @@ public class Main {
                         ? String.join(" ", Arrays.copyOfRange(splitName, 1, splitName.length))
                         : "";
 
-        System.out.println("Please enter your Date of Birth");
+        System.out.println("Please enter your Date of Birth (MM/DD/YYYY)");
         String dateOfBirth = scanner.nextLine();
 
         String[] splitDate = Helpers.splitDate(dateOfBirth);
