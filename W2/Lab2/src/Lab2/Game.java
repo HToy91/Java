@@ -34,7 +34,7 @@ public class Game {
         System.out.println(computer.name + ": " + computer.score);
     }
 
-    private static void PlayGame(String name, Player player, Player computer, Scanner scanner) {
+    public static void PlayGame(String name, Player player, Player computer, Scanner scanner) {
 
         System.out.println("Welcome " + player.name + " to the game of Rock, Paper, Scissors!");
         System.out.println("Please enter your choice (rock, paper, scissors)");
@@ -49,7 +49,7 @@ public class Game {
         System.out.println(computer.name + "'s score: " + computer.score);
     }
 
-    private static void DetermineWinner(String playerChoice, String computerChoice, Player player, Player computer) {
+    public static void DetermineWinner(String playerChoice, String computerChoice, Player player, Player computer) {
         String result = playerChoice.toLowerCase() + "-" + computerChoice.toLowerCase();
 
         if (!playerChoice.equalsIgnoreCase("rock") && !playerChoice.equalsIgnoreCase("paper") && !playerChoice.equalsIgnoreCase("scissors")) {
