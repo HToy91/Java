@@ -41,7 +41,7 @@ public class Game {
         String playerChoice = scanner.nextLine();
 
         String computerChoice = computer.moves[(int) (Math.random() * 3)];
-        System.out.println("The computer chose " + computerChoice);
+        System.out.println(computer.name + " chose " + computerChoice);
 
         DetermineWinner(playerChoice, computerChoice, player, computer);
 
