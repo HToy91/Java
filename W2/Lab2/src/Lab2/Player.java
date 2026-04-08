@@ -1,6 +1,7 @@
 package Lab2;
 
 public class Player {
+    static int ties;
     String name;
     int score;
 

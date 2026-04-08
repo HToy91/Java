@@ -31,7 +31,9 @@ public class Game {
         }
         System.out.println("Final Scores");
         System.out.print(player.name + ": " + player.score + " | ");
-        System.out.println(computer.name + ": " + computer.score);
+        System.out.print(computer.name + ": " + computer.score + " | ");
+        System.out.println("Ties: " + Player.ties);
+        System.out.println("Thank you for playing!");
     }
 
     public static void PlayGame(String name, Player player, Player computer, Scanner scanner) {
@@ -47,6 +49,7 @@ public class Game {
 
         System.out.println(player.name + "'s score: " + player.score);
         System.out.println(computer.name + "'s score: " + computer.score);
+        System.out.println("Ties: " + Player.ties);
     }
 
     public static void DetermineWinner(String playerChoice, String computerChoice, Player player, Player computer) {
@@ -62,6 +65,7 @@ public class Game {
             case "paper-paper":
             case "scissors-scissors":
                 System.out.println("It's a tie!");
+                Player.ties++;
                 break;
 
             case "rock-scissors":
