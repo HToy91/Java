@@ -28,6 +28,11 @@ public class Game {
 
             System.out.println("Would you like to play again (Y/N)?");
             answer = scanner.nextLine();
+
+            while (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
+                System.out.println("Invalid input, please enter Y or N");
+                answer = scanner.nextLine();
+            }
         }
         System.out.println("Final Scores");
         System.out.print(player.name + ": " + player.score + " | ");
@@ -55,7 +60,11 @@ public class Game {
     public static void DetermineWinner(String playerChoice, String computerChoice, Player player, Player computer) {
         String result = playerChoice.toLowerCase() + "-" + computerChoice.toLowerCase();
 
-        if (!playerChoice.equalsIgnoreCase("rock") && !playerChoice.equalsIgnoreCase("paper") && !playerChoice.equalsIgnoreCase("scissors")) {
+        if (
+                !playerChoice.equalsIgnoreCase("rock")
+                        && !playerChoice.equalsIgnoreCase("paper")
+                        && !playerChoice.equalsIgnoreCase("scissors")
+        ) {
             System.out.println("Invalid choice, please enter rock, paper, or scissors");
             return;
         }
