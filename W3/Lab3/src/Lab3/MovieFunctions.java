@@ -35,6 +35,7 @@ public class MovieFunctions {
 //        int releaseYear = scanner.nextInt();
 //        scanner.nextLine();
         int releaseYear;
+
         while (true) {
             try {
                 System.out.println("Please enter the movie release year");
