@@ -26,17 +26,27 @@ public class MovieFunctions {
 
     public static Movie EnterMovie(Scanner scanner) {
         System.out.println("Please enter the movie name");
-        String name = scanner.nextLine();
+        String name = scanner.nextLine().trim().replaceAll("\\s+", " "); // Clean up spaces
 
         System.out.println("Please enter the movie director");
-        String director = scanner.nextLine();
+        String director = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
-        System.out.println("Please enter the movie release year");
-        int releaseYear = scanner.nextInt();
-        scanner.nextLine();
+//        System.out.println("Please enter the movie release year");
+//        int releaseYear = scanner.nextInt();
+//        scanner.nextLine();
+        int releaseYear;
+        while (true) {
+            try {
+                System.out.println("Please enter the movie release year");
+                releaseYear = Integer.parseInt(scanner.nextLine());
+                break;
+            } catch (NumberFormatException err) {
+                System.out.println("Invalid input, please enter a valid year");
+            }
+        }
 
         System.out.println("Please enter the movie genre");
-        String genre = scanner.nextLine();
+        String genre = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
         return (new Movie(name, director, releaseYear, genre));
     }
