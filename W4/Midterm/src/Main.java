@@ -1,15 +1,35 @@
+import Midterm.FileHelper;
+import Midterm.Stock;
+
+import java.text.MessageFormat;
+import java.text.NumberFormat;
+import java.util.List;
+import java.util.Locale;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
+        String filePath =
+                "/Users/josevargasfigueroa/Documents/Java/W4/Midterm/src/Midterm/Stocks.CSV";
+        List<Stock> stocks = FileHelper.createStockList(filePath);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        for (Stock stock: stocks) {
+            print(stock);
         }
+        System.out.println("Your Portfolio Value is: "
+                + formatter.format(stocks.stream().mapToDouble(stock -> stock.holdings).sum()));
+    }
+
+    public static void print(Stock stock) {
+        NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
+        System.out.println(MessageFormat.format("Stock Name: {0}\nStock Abbrev: {1}\nStock Price: {2}\nStock Quantity: {3}\nYour Holdings: {4}\n",
+                stock.name,
+                stock.abbrev,
+                formatter.format(stock.price),
+                stock.quantity,
+                formatter.format(stock.holdings)
+                ));
     }
 }
