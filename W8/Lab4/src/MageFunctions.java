@@ -22,7 +22,7 @@ public class MageFunctions {
                 System.out.println("Invalid input, please enter Y or N");
                 answer = scanner.nextLine();
             }
-            
+
         } while (answer.equalsIgnoreCase("y"));
 
         DisplayMageList(mageList);
