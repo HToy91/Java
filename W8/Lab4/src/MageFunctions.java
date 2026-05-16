@@ -4,6 +4,7 @@ import Library.Warlock;
 import Library.Wizard;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,11 +16,11 @@ public class MageFunctions {
         do {
             mageList.add(EnterMage(scanner));
 
-            System.out.println("Would you like to enter another Mage(Y/N)?");
+            System.out.print("Would you like to enter another Mage(Y/N)?: ");
             answer = scanner.nextLine();
 
             while (!answer.equalsIgnoreCase("y") && !answer.equalsIgnoreCase("n")) {
-                System.out.println("Invalid input, please enter Y or N");
+                System.out.print("Invalid input, please enter Y or N: ");
                 answer = scanner.nextLine();
             }
 
@@ -32,7 +33,7 @@ public class MageFunctions {
         int listAmount = 0;
         int totalAmount = mageList.size();
 
-        System.out.println("\nYou have " + totalAmount + " of Mages on your team!");
+        System.out.println("\nYou have " + totalAmount + " Mages on your team!");
 
         for (var mage : mageList) {
             listAmount++;
@@ -41,7 +42,7 @@ public class MageFunctions {
                     "\nMage " + listAmount
                     + "\n" + "_".repeat(30)
                     + "\nName: " + mage.name
-                    + "\nType: " + mage.type
+                    + "\nType: " + mage.type.toUpperCase()
             );
             mage.catchPhrase();
             mage.attack(mage.attack);
@@ -52,8 +53,19 @@ public class MageFunctions {
         System.out.print("Enter the name of the mage: ");
         String name = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
-        System.out.print("Enter type of Mage(Sorcerer, Wizard, or Warlock): ");
+        System.out.print("Enter type of Mage(Sorcerer, Wizard, Warlock, or Mage[for default]: ");
         String type = scanner.nextLine().trim().replaceAll("\\s+", " ");
+
+        List<String> typeList = Arrays.asList("sorcerer", "wizard", "warlock", "mage");
+        while (!typeList.contains(type.toLowerCase())) {
+            System.out.print("Invalid input, please enter Sorcerer, Wizard, Warlock, or Mage: ");
+            type = scanner.nextLine().trim().replaceAll("\\s+", " ");
+        }
+
+//        while (!type.equalsIgnoreCase("sorcerer") && !type.equalsIgnoreCase("warlock") && !type.equalsIgnoreCase("wizard")) {
+//            System.out.print("Invalid input, please enter Sorcerer, Wizard, or Warlock: ");
+//            type = scanner.nextLine().trim().replaceAll("\\s+", " ");
+//        }
 
         System.out.print("Please enter his attack: ");
         String attack = scanner.nextLine().trim().replaceAll("\\s+", " ");

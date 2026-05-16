@@ -11,6 +11,6 @@ public class Warlock extends Mage {
     }
 
     public void attack(String attack) {
-        System.out.println("The Warlock casts " + attack + "!");
+        System.out.println("The Warlock casts " + attack.toUpperCase() + "!");
     }
 }

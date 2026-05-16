@@ -12,6 +12,6 @@ public class Sorcerer extends Mage {
 
     @Override
     public void attack(String attack) {
-        System.out.println("The Sorcerer used " + attack + "!");
+        System.out.println("The Sorcerer used " + attack.toUpperCase() + "!");
     }
 }

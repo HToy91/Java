@@ -10,7 +10,7 @@ public class Wizard extends Mage {
     }
 
     public void attack(String attack) {
-        System.out.println("The Wizard casts " + attack + "!");
+        System.out.println("The Wizard casts " + attack.toUpperCase() + "!");
 
     }
 }

@@ -16,6 +16,6 @@ public class Mage {
     }
 
     public void attack(String attack) {
-        System.out.println(attack + " Attack initiated!");
+        System.out.println(attack.toUpperCase() + " Attack initiated!");
     }
 }
