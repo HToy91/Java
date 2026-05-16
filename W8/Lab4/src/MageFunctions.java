@@ -29,6 +29,23 @@ public class MageFunctions {
     }
 
     private static void DisplayMageList(List<Mage> mageList) {
+        int listAmount = 0;
+        int totalAmount = mageList.size();
+
+        System.out.println("\nYou have " + totalAmount + " of Mages on your team!");
+
+        for (var mage : mageList) {
+            listAmount++;
+
+            System.out.println(
+                    "\nMage " + listAmount
+                    + "\n" + "_".repeat(30)
+                    + "\nName: " + mage.name
+                    + "\nType: " + mage.type
+            );
+            mage.catchPhrase();
+            mage.attack(mage.attack);
+        }
     }
 
     public static Mage EnterMage(Scanner scanner) {
@@ -38,14 +55,14 @@ public class MageFunctions {
         System.out.print("Enter type of Mage(Sorcerer, Wizard, or Warlock): ");
         String type = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
-        System.out.print("Please enter his attack");
+        System.out.print("Please enter his attack: ");
         String attack = scanner.nextLine().trim().replaceAll("\\s+", " ");
 
         return switch (type.toLowerCase()) {
-            case "sorcerer" -> new Sorcerer();
-            case "wizard" -> new Wizard();
-            case "warlock" -> new Warlock();
-            default -> new Mage();
+            case "sorcerer" -> new Sorcerer(name, type, attack);
+            case "wizard" -> new Wizard(name, type, attack);
+            case "warlock" -> new Warlock(name, type, attack);
+            default -> new Mage(name, "mage", attack);
         };
     }
 }
